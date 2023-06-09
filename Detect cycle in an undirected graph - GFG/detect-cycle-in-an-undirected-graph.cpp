@@ -5,27 +5,16 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
     private:
-        bool detect(int src, vector<int> adj[], int vis[])
+        bool dfs(int node, int parent, vector<int> adj[], int vis[])
         {
-            vis[src]=1;
-            queue<pair<int,int>>q;
-            q.push({src, -1});
-            while(!q.empty())
+            vis[node]=1;
+            for(auto it: adj[node])
             {
-                int node=q.front().first;
-                int parent=q.front().second;
-                q.pop();
-                
-                for(auto it: adj[node])
+                if(!vis[it])
                 {
-                    if(!vis[it])
-                    {
-                        vis[it]=1;
-                        q.push({it, node});
-                    }
-                    else if(parent!=it)
-                        return true;
+                    if(dfs(it, node, adj, vis)==true) return true;
                 }
+                else if(it!=parent) return true;
             }
             
             return false;
@@ -37,7 +26,7 @@ class Solution {
          for(int i=0; i<V; i++)
          {
              if(!vis[i]){
-                 if(detect(i, adj, vis)) return true;
+                 if(dfs(i, -1, adj, vis)) return true;
              }
          }
          
