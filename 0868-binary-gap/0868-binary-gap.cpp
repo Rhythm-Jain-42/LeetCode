@@ -1,31 +1,31 @@
-class Solution {
+class Solution 
+{
 public:
-    int binaryGap(int n) {
-        vector <int> v;
+    int binaryGap(int n) 
+    {
         int i=0;
-        while(n){
-            v.push_back(n%2);
+        int li=-1;
+        int ans = 0;
+        while(n>0)
+        {
+            if(n%2)
+            {
+                if(li==-1)
+                {
+                    li=i;
+                }
+                else
+                {
+                    ans = max(i-li, ans);
+                    li=i;
+                }            
+            }
             n/=2;
+            i++;
         }
-        int j;
-        for(int i=0; i<v.size();i++)
-        {
-            if(v[i]==1){
-                j=i;
-                break;
-            }
-        }
-        int count=0;int ans=0;
-        for(int i=j+1; i<v.size(); i++)
-        {
-            count++;
-            if(v[i]==1){
-                ans=max(ans, count);
-                count=0;
-                j=i;
-            }
-        }
+        
 
-          return ans;
+        // std::cout<<;        
+        return ans;
     }
 };
