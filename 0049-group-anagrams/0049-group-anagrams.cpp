@@ -16,3 +16,7 @@ public:
         return ans;
     }
 };
+
+// aet={eat, ate, tea}
+// ant={nat, tan}
+// abt={bat}
