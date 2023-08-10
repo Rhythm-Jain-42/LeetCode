@@ -13,22 +13,25 @@ class Solution {
 public:
     vector<int> rightSideView(TreeNode* root) {
         vector<int> ans;
-        int level = 0;
-        rightside(root, level, ans);
+        if(root==NULL) return ans;
+        queue<TreeNode*> q;
+        q.push(root);
+        
+        while(!q.empty())
+        {
+            int n=q.size(), x=0;
+            for(int i=0; i<n; i++)
+            {
+                TreeNode* node=q.front();
+                q.pop();
+                x=node->val;
+                if(i==n-1) ans.push_back(x);
+        
+                if(node->left) q.push(node->left);
+                if(node->right) q.push(node->right);
+            }
+        }
+        
         return ans;
-    }
-
-private:
-    void rightside(TreeNode* root, int level, std::vector<int>& ans) {
-        if (root == NULL) {
-            return ;
-        }
-
-        if (ans.size() == level) {
-            ans.push_back(root->val);
-        }
-
-        rightside(root->right, level + 1, ans);
-        rightside(root->left, level + 1, ans);
     }
 };
