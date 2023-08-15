@@ -11,8 +11,6 @@
 class Solution {
 public:
     ListNode* partition(ListNode* head, int x) {
-        if(head==NULL || head->next==NULL) return head;
-        
         ListNode *right=new ListNode(0);
         ListNode *left=new ListNode(0);
         
