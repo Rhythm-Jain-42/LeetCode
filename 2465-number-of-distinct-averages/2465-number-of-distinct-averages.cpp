@@ -1,12 +1,12 @@
 class Solution {
 public:
     int distinctAverages(vector<int>& nums) {
-        set<double> st;
+        set<float> st;
         sort(nums.begin(), nums.end());
         int left=0;
         int right=nums.size()-1;
         while(left<right){
-            double avg=((double)nums[left]+(double)nums[right])/2;
+            double avg=((float)nums[left]+(float)nums[right])/2;
             st.insert(avg);
             left++;
             right--;
