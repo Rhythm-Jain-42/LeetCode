@@ -15,9 +15,10 @@ public:
        if(root==NULL){
            return NULL;
        }
+        
+       swap(root->left,root->right);
        root->left=invertTree(root->left);
        root->right=invertTree(root->right);
-       swap(root->left,root->right);
        return root;
     }
 };
