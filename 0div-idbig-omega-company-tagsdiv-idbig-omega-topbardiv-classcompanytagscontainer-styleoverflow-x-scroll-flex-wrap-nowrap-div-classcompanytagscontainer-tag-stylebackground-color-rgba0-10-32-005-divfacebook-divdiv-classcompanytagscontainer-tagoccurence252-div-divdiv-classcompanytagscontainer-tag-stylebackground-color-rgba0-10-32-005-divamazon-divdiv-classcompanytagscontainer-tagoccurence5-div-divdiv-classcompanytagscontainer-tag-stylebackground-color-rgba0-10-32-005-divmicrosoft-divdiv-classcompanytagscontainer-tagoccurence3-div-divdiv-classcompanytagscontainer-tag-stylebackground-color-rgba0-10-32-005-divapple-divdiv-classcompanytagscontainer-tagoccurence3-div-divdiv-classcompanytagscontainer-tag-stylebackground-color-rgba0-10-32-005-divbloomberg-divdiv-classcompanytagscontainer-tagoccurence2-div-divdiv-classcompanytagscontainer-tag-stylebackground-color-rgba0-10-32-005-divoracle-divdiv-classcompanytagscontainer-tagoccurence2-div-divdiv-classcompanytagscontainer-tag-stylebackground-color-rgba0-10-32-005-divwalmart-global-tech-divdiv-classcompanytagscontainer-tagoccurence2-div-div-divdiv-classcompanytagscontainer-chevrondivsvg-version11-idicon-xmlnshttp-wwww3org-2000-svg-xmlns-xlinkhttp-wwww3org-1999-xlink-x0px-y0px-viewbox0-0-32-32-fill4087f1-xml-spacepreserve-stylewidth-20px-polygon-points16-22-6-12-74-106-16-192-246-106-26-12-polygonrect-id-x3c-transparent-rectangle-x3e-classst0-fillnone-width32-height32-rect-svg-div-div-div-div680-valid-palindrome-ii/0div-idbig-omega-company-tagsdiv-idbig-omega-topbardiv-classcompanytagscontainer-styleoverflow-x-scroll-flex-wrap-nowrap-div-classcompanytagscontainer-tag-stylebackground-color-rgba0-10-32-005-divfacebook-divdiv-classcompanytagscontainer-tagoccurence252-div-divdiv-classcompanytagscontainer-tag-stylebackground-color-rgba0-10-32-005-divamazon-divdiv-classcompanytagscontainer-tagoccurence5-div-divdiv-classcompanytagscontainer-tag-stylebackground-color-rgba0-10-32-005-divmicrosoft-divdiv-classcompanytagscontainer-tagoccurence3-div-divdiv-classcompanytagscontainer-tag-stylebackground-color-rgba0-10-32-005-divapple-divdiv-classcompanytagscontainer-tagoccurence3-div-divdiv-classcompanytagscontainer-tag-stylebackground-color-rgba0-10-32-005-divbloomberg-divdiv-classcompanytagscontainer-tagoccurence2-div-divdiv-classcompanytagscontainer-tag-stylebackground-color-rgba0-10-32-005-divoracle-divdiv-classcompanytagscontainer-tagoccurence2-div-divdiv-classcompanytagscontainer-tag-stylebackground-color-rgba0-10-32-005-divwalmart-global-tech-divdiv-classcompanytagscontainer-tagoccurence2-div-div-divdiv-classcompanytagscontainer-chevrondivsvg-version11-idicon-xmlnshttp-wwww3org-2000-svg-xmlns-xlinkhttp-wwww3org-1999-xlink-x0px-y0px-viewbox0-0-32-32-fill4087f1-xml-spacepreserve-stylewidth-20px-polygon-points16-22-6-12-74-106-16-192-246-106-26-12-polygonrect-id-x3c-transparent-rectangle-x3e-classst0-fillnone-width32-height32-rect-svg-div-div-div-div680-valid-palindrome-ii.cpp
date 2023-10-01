@@ -4,8 +4,8 @@ public:
     bool isPali(int i,int e, string s) {
         while(i<=e) {
             if(s[i]==s[e]) {
-                i = i + 1;
-                e = e - 1;
+                i=i+1;
+                e=e-1;
             }
             else return false;
         }
