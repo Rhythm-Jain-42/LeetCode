@@ -1,7 +1,7 @@
 class Solution {
 public:
 
-    bool isPali(int i,int e, string s) {
+    bool isPali(int i, int e, string s) {
         while(i<=e) {
             if(s[i]==s[e]) {
                 i=i+1;
