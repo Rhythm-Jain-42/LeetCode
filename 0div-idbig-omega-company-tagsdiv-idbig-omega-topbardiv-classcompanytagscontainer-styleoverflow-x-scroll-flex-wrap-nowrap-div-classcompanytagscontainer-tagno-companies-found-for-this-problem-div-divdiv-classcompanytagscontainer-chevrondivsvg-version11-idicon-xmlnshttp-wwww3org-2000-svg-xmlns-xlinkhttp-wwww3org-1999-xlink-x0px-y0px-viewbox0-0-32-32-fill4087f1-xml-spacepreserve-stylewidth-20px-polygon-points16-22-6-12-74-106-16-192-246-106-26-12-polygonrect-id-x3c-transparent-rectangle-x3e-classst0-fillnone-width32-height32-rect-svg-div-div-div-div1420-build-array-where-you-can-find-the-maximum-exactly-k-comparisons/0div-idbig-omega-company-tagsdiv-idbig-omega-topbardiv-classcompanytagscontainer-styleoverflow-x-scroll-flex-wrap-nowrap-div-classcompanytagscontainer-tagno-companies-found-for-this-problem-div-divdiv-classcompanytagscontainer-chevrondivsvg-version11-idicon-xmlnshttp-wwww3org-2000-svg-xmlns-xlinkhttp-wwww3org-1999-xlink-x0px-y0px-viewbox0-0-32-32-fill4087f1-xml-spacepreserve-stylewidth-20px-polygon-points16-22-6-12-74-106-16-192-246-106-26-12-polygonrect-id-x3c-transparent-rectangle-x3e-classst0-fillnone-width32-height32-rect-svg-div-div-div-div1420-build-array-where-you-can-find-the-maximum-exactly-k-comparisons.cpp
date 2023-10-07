@@ -6,7 +6,6 @@ public:
             return 0;
         }
         if(idx >= n){
-            //Travelled ALL indexes
             if(prevCost == k){
                 return 1;
             }
@@ -26,8 +25,6 @@ public:
                 ans = (ans + solve(idx+1,prevCost+1,i,n,m,k,mem)%mod)%mod;
             }
             else{
-                //Cost remains same as Max element is not alteted
-                //Note: i = prevMax, No more cost as already GOT Max previously
                 ans = (ans + solve(idx+1,prevCost,prevMax,n,m,k,mem)%mod)%mod;
             }
         }
