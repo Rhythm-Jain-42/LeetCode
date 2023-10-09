@@ -5,12 +5,12 @@ public:
         for(int i=0; i<nums.size(); i++){
             mp[nums[i]]++;
         }
-        vector<int> result;
+        vector<int> ans;
         for(int i=1; i<=nums.size(); i++){
             if(mp[i] == 0){
-                result.push_back(i);
+                ans.push_back(i);
             }
         }
-        return result;
+        return ans;
     }
 };
