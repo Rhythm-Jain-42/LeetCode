@@ -16,13 +16,13 @@ public:
         mp[900]="CM";
         mp[1000]="M";
 
-        string ans = "";
+        string ans="";
 
         while(num)
         {
-            auto i = *mp.lower_bound(num);
-            ans += (i.second);
-            num -= (i.first);
+            auto i=*mp.lower_bound(num);
+            ans+=(i.second);
+            num-=(i.first);
         }
          return ans;
      }
